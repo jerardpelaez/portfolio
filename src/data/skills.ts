@@ -96,13 +96,3 @@ export function generatePositions(
 
 // Pre-computed skills with positions
 export const positionedSkills = generatePositions(skills, skillCategories)
-
-// Get category by ID
-export function getCategoryById(id: string): SkillCategory | undefined {
-  return skillCategories.find((cat) => cat.id === id)
-}
-
-// Get skills by category
-export function getSkillsByCategory(categoryId: string): ConstellationSkill[] {
-  return positionedSkills.filter((skill) => skill.categoryId === categoryId)
-}

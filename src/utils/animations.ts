@@ -9,10 +9,6 @@ export function initRevealAnimations() {
   });
 }
 
-export function initParallaxLayers() {
-  // No-op - parallax removed for performance
-}
-
 export function initSkillBars() {
   // Set skill bars to their target width immediately
   document.querySelectorAll('.skill-bar-fill').forEach(el => {
@@ -27,18 +23,6 @@ export function initHeroAnimation() {
     (el as HTMLElement).style.opacity = '1';
     (el as HTMLElement).style.transform = 'none';
   });
-}
-
-export function initStaggerReveal(selector: string, _stagger: number = 0.1) {
-  // Show all elements immediately
-  document.querySelectorAll(selector).forEach(el => {
-    (el as HTMLElement).style.opacity = '1';
-    (el as HTMLElement).style.transform = 'none';
-  });
-}
-
-export function initGlowOrbs() {
-  // No-op - glow orb animations removed for performance
 }
 
 export function initAllAnimations() {

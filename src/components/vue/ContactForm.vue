@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref, reactive, computed } from 'vue'
 
+const WEB3FORMS_ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY
+
 const form = reactive({
   name: '',
   email: '',
@@ -10,6 +12,7 @@ const form = reactive({
 const errors = reactive<Record<string, string>>({})
 const isSubmitting = ref(false)
 const submitSuccess = ref(false)
+const submitError = ref('')
 
 const isValidEmail = computed(() => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)
@@ -41,19 +44,44 @@ async function handleSubmit() {
   if (!validate()) return
 
   isSubmitting.value = true
+  submitError.value = ''
 
-  await new Promise(resolve => setTimeout(resolve, 1500))
+  try {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_ACCESS_KEY,
+        name: form.name,
+        email: form.email,
+        message: form.message,
+        subject: `New message from ${form.name} via Portfolio`,
+        from_name: 'Portfolio Contact Form'
+      })
+    })
 
-  isSubmitting.value = false
-  submitSuccess.value = true
+    const result = await response.json()
 
-  form.name = ''
-  form.email = ''
-  form.message = ''
+    if (result.success) {
+      submitSuccess.value = true
+      form.name = ''
+      form.email = ''
+      form.message = ''
 
-  setTimeout(() => {
-    submitSuccess.value = false
-  }, 5000)
+      setTimeout(() => {
+        submitSuccess.value = false
+      }, 5000)
+    } else {
+      submitError.value = result.message || 'Something went wrong. Please try again.'
+    }
+  } catch (error) {
+    submitError.value = 'Failed to send message. Please try again later.'
+  } finally {
+    isSubmitting.value = false
+  }
 }
 </script>
 
@@ -72,6 +100,19 @@ async function handleSubmit() {
       >
         <p class="text-green-400 font-medium">
           Thank you! Your message has been sent successfully.
+        </p>
+      </div>
+    </Transition>
+
+    <!-- Error Message -->
+    <Transition name="slide-fade">
+      <div
+        v-if="submitError"
+        class="p-4 bg-red-500/20 border border-red-500/30 rounded-lg"
+        role="alert"
+      >
+        <p class="text-red-400 font-medium">
+          {{ submitError }}
         </p>
       </div>
     </Transition>

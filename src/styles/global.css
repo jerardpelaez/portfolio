@@ -131,10 +131,6 @@ input, select, textarea {
 }
 
 /* Glow Utilities - Monochromatic Lavender */
-.glow-primary {
-  box-shadow: 0 0 20px var(--color-glow-purple);
-}
-
 .glow-purple {
   box-shadow: 0 0 20px var(--color-glow-purple);
 }
@@ -177,11 +173,6 @@ input, select, textarea {
   grid-row: span 1;
 }
 
-.bento-tall {
-  grid-column: span 3;
-  grid-row: span 2;
-}
-
 .bento-sm {
   grid-column: span 3;
   grid-row: span 1;
@@ -197,7 +188,6 @@ input, select, textarea {
     grid-column: span 6;
   }
 
-  .bento-tall,
   .bento-sm {
     grid-column: span 3;
   }
@@ -211,7 +201,6 @@ input, select, textarea {
 
   .bento-lg,
   .bento-wide,
-  .bento-tall,
   .bento-sm {
     grid-column: span 1;
     grid-row: span 1;
