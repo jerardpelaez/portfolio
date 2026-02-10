@@ -78,7 +78,7 @@ async function handleSubmit() {
 
     <!-- Name Field -->
     <div>
-      <label for="name" class="block text-sm font-medium text-neutral-300 mb-2">
+      <label for="name" class="block text-sm font-medium text-[#F0EDE8] mb-2">
         Name <span class="text-red-400" aria-hidden="true">*</span>
       </label>
       <input
@@ -86,10 +86,10 @@ async function handleSubmit() {
         v-model="form.name"
         type="text"
         autocomplete="name"
-        class="w-full px-4 py-3 rounded-lg border bg-neutral-900/50 text-white placeholder-neutral-500 transition-all duration-300 focus:ring-0 focus:outline-none focus:scale-[1.01]"
+        class="w-full px-4 py-3 rounded-lg border bg-[#161916]/50 text-[#F0EDE8] placeholder-[#9A9990] transition-all duration-300 focus:ring-0 focus:outline-none focus:scale-[1.01]"
         :class="errors.name
           ? 'border-red-500 focus:border-red-500'
-          : 'border-white/10 focus:border-blue-500 focus:glow-subtle-blue'"
+          : 'border-white/10 focus:border-[#A78BFA] focus:glow-subtle-purple'"
         :aria-invalid="!!errors.name"
         :aria-describedby="errors.name ? 'name-error' : undefined"
         placeholder="Your name"
@@ -108,7 +108,7 @@ async function handleSubmit() {
 
     <!-- Email Field -->
     <div>
-      <label for="email" class="block text-sm font-medium text-neutral-300 mb-2">
+      <label for="email" class="block text-sm font-medium text-[#F0EDE8] mb-2">
         Email <span class="text-red-400" aria-hidden="true">*</span>
       </label>
       <input
@@ -117,10 +117,10 @@ async function handleSubmit() {
         type="email"
         autocomplete="email"
         inputmode="email"
-        class="w-full px-4 py-3 rounded-lg border bg-neutral-900/50 text-white placeholder-neutral-500 transition-all duration-300 focus:ring-0 focus:outline-none focus:scale-[1.01]"
+        class="w-full px-4 py-3 rounded-lg border bg-[#161916]/50 text-[#F0EDE8] placeholder-[#9A9990] transition-all duration-300 focus:ring-0 focus:outline-none focus:scale-[1.01]"
         :class="errors.email
           ? 'border-red-500 focus:border-red-500'
-          : 'border-white/10 focus:border-blue-500 focus:glow-subtle-blue'"
+          : 'border-white/10 focus:border-[#A78BFA] focus:glow-subtle-purple'"
         :aria-invalid="!!errors.email"
         :aria-describedby="errors.email ? 'email-error' : undefined"
         placeholder="your@email.com"
@@ -139,17 +139,17 @@ async function handleSubmit() {
 
     <!-- Message Field -->
     <div>
-      <label for="message" class="block text-sm font-medium text-neutral-300 mb-2">
+      <label for="message" class="block text-sm font-medium text-[#F0EDE8] mb-2">
         Message <span class="text-red-400" aria-hidden="true">*</span>
       </label>
       <textarea
         id="message"
         v-model="form.message"
         rows="5"
-        class="w-full px-4 py-3 rounded-lg border bg-neutral-900/50 text-white placeholder-neutral-500 transition-all duration-300 focus:ring-0 focus:outline-none focus:scale-[1.01] resize-y min-h-32"
+        class="w-full px-4 py-3 rounded-lg border bg-[#161916]/50 text-[#F0EDE8] placeholder-[#9A9990] transition-all duration-300 focus:ring-0 focus:outline-none focus:scale-[1.01] resize-y min-h-32"
         :class="errors.message
           ? 'border-red-500 focus:border-red-500'
-          : 'border-white/10 focus:border-blue-500 focus:glow-subtle-blue'"
+          : 'border-white/10 focus:border-[#A78BFA] focus:glow-subtle-purple'"
         :aria-invalid="!!errors.message"
         :aria-describedby="errors.message ? 'message-error' : undefined"
         placeholder="Tell me about your project..."
@@ -171,7 +171,7 @@ async function handleSubmit() {
       type="submit"
       :disabled="isSubmitting"
       data-magnetic
-      class="w-full py-4 px-6 bg-blue-600 hover:bg-blue-500 disabled:bg-blue-600/50 text-white font-medium rounded-lg transition-all duration-300 flex items-center justify-center gap-2 touch-manipulation glow-subtle-blue hover:glow-blue"
+      class="w-full py-4 px-6 bg-[#8B5CF6] hover:bg-[#A78BFA] disabled:bg-[#8B5CF6]/50 text-white font-medium rounded-lg transition-all duration-300 flex items-center justify-center gap-2 touch-manipulation glow-subtle-purple hover:glow-purple"
     >
       <svg
         v-if="isSubmitting"

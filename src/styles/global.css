@@ -17,29 +17,31 @@
   --touch-target-min: 44px;
   --touch-target-comfortable: 48px;
 
-  /* Custom colors */
-  --color-primary: #2563eb;
-  --color-primary-dark: #1d4ed8;
-  --color-accent: #8b5cf6;
-  --color-success: #10b981;
+  /* Custom colors - Forest Lavender Theme */
+  --color-primary: #A78BFA;
+  --color-primary-dark: #8B5CF6;
+  --color-primary-light: #C4B5FD;
+  --color-primary-muted: #7C6CB0;
+  --color-accent: #A78BFA;
+  --color-success: #6EE7B7;
 
-  /* Cinematic Dark Theme */
-  --color-dark-deep: #050505;
-  --color-dark-bg: #0a0a0a;
-  --color-dark-surface: #0a0a0a;
-  --color-dark-elevated: #111111;
-  --color-dark-text: #f5f5f5;
-  --color-dark-muted: #a3a3a3;
+  /* Forest/Olive Dark Theme */
+  --color-dark-deep: #0A0C0A;
+  --color-dark-bg: #10120F;
+  --color-dark-surface: #161916;
+  --color-dark-elevated: #1E211D;
+  --color-dark-text: #F0EDE8;
+  --color-dark-muted: #9A9990;
 
-  /* Glow Colors (reduced intensity) */
-  --color-glow-blue: rgba(59, 130, 246, 0.3);
-  --color-glow-purple: rgba(139, 92, 246, 0.3);
-  --color-glow-cyan: rgba(6, 182, 212, 0.25);
+  /* Glow Colors - Subtle lavender */
+  --color-glow-purple: rgba(167, 139, 250, 0.25);
+  --color-glow-soft: rgba(167, 139, 250, 0.15);
+  --color-glow-cyan: rgba(167, 139, 250, 0.20);
 
-  /* Glassmorphism (reduced blur) */
-  --glass-bg: rgba(17, 17, 17, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-blur: 6px;
+  /* Glassmorphism - Forest-tinted */
+  --glass-bg: rgba(22, 25, 22, 0.75);
+  --glass-border: rgba(167, 139, 250, 0.08);
+  --glass-blur: 8px;
 }
 
 /* Base Styles */
@@ -128,34 +130,34 @@ input, select, textarea {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Glow Utilities (reduced intensity) */
-.glow-blue {
-  box-shadow: 0 0 20px var(--color-glow-blue);
+/* Glow Utilities - Monochromatic Lavender */
+.glow-primary {
+  box-shadow: 0 0 20px var(--color-glow-purple);
 }
 
 .glow-purple {
   box-shadow: 0 0 20px var(--color-glow-purple);
 }
 
-.glow-cyan {
-  box-shadow: 0 0 20px var(--color-glow-cyan);
+.glow-soft {
+  box-shadow: 0 0 20px var(--color-glow-soft);
 }
 
-.glow-subtle-blue {
-  box-shadow: 0 0 12px rgba(59, 130, 246, 0.2);
+.glow-subtle {
+  box-shadow: 0 0 12px rgba(167, 139, 250, 0.15);
 }
 
 .glow-subtle-purple {
-  box-shadow: 0 0 12px rgba(139, 92, 246, 0.2);
+  box-shadow: 0 0 12px rgba(167, 139, 250, 0.18);
 }
 
-/* Text Glow (reduced) */
-.text-glow-blue {
-  text-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+/* Text Glow - Subtle lavender */
+.text-glow {
+  text-shadow: 0 0 12px rgba(167, 139, 250, 0.35);
 }
 
 .text-glow-purple {
-  text-shadow: 0 0 12px rgba(139, 92, 246, 0.4);
+  text-shadow: 0 0 12px rgba(167, 139, 250, 0.35);
 }
 
 /* Bento Grid Utilities */
@@ -216,7 +218,7 @@ input, select, textarea {
   }
 }
 
-/* Gradient Border */
+/* Gradient Border - Monochromatic Lavender */
 .gradient-border {
   position: relative;
 }
@@ -228,12 +230,12 @@ input, select, textarea {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), rgba(139, 92, 246, 0.5), transparent);
+  background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.4), rgba(196, 181, 253, 0.3), transparent);
 }
 
 /* Dark Mode Focus Enhancement */
 :focus-visible {
-  outline: 3px solid rgba(59, 130, 246, 0.8);
+  outline: 3px solid rgba(167, 139, 250, 0.7);
   outline-offset: 2px;
 }
 

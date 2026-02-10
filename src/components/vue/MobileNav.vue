@@ -90,7 +90,7 @@ function closeMenu() {
               <a
                 href="#contact"
                 @click="closeMenu"
-                class="block w-full py-4 text-center bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-lg transition-colors glow-subtle-blue"
+                class="block w-full py-4 text-center bg-[#8B5CF6] hover:bg-[#A78BFA] text-white font-medium rounded-lg transition-colors glow-subtle-purple"
               >
                 Get in Touch
               </a>

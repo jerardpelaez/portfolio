@@ -4,20 +4,20 @@ export const skillCategories: SkillCategory[] = [
   {
     id: 'frontend',
     name: 'Frontend',
-    color: '#3b82f6', // Blue
-    glowColor: 'rgba(59, 130, 246, 0.6)'
+    color: '#A78BFA', // Lavender Primary
+    glowColor: 'rgba(167, 139, 250, 0.5)'
   },
   {
     id: 'frameworks',
     name: 'Frameworks & Libraries',
-    color: '#a855f7', // Purple
-    glowColor: 'rgba(168, 85, 247, 0.6)'
+    color: '#C4B5FD', // Lavender Light
+    glowColor: 'rgba(196, 181, 253, 0.5)'
   },
   {
     id: 'tools',
     name: 'Tools & Workflow',
-    color: '#06b6d4', // Cyan
-    glowColor: 'rgba(6, 182, 212, 0.6)'
+    color: '#8B5CF6', // Lavender Dark
+    glowColor: 'rgba(139, 92, 246, 0.5)'
   }
 ]
 

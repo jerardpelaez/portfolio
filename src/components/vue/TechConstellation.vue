@@ -63,7 +63,7 @@ function getChipWeight(level: number): string {
             boxShadow: `0 0 12px ${group.category.glowColor}`
           }"
         />
-        <h3 class="text-lg font-semibold text-white">
+        <h3 class="text-lg font-semibold text-[#F0EDE8]">
           {{ group.category.name }}
         </h3>
       </div>
@@ -82,7 +82,7 @@ function getChipWeight(level: number): string {
           }"
         >
           <!-- Skill Name -->
-          <span class="text-white">{{ skill.name }}</span>
+          <span class="text-[#F0EDE8]">{{ skill.name }}</span>
 
           <!-- Level Badge -->
           <span

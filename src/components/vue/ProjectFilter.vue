@@ -78,8 +78,8 @@ onMounted(() => {
         :aria-controls="'projects-panel'"
         class="px-4 py-2 rounded-full font-medium transition-all duration-300 touch-manipulation"
         :class="activeFilter === tag
-          ? 'bg-blue-600 text-white glow-subtle-blue'
-          : 'glass text-neutral-400 hover:text-white hover:bg-white/10'"
+          ? 'bg-[#8B5CF6] text-white glow-subtle-purple'
+          : 'glass text-[#9A9990] hover:text-[#F0EDE8] hover:bg-white/10'"
       >
         {{ tag }}
       </button>
@@ -95,7 +95,7 @@ onMounted(() => {
         <article
           v-for="(project, index) in filteredProjects"
           :key="project.id"
-          class="project-card group glass rounded-2xl overflow-hidden hover:glow-subtle-blue transition-all duration-500"
+          class="project-card group glass rounded-2xl overflow-hidden hover:glow-subtle-purple transition-all duration-500"
           :class="project.featured ? 'bento-lg' : 'bento-wide'"
         >
           <!-- Project Image -->
@@ -113,10 +113,10 @@ onMounted(() => {
 
           <!-- Project Content -->
           <div class="p-6">
-            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+            <h3 class="text-xl font-bold text-[#F0EDE8] mb-2 group-hover:text-[#C4B5FD] transition-colors">
               {{ project.title }}
             </h3>
-            <p class="text-neutral-400 mb-4 line-clamp-2">
+            <p class="text-[#9A9990] mb-4 line-clamp-2">
               {{ project.description }}
             </p>
 
@@ -125,7 +125,7 @@ onMounted(() => {
               <span
                 v-for="tag in project.tags"
                 :key="tag"
-                class="px-3 py-1 text-xs font-medium bg-blue-500/20 text-blue-300 rounded-full border border-blue-500/30"
+                class="px-3 py-1 text-xs font-medium bg-[#A78BFA]/20 text-[#C4B5FD] rounded-full border border-[#A78BFA]/30"
               >
                 {{ tag }}
               </span>
@@ -139,7 +139,7 @@ onMounted(() => {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-magnetic
-                class="flex-1 py-2.5 text-center bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-lg transition-all duration-300"
+                class="flex-1 py-2.5 text-center bg-[#8B5CF6] hover:bg-[#A78BFA] text-white font-medium rounded-lg transition-all duration-300"
               >
                 Live Demo
               </a>
@@ -149,7 +149,7 @@ onMounted(() => {
                 target="_blank"
                 rel="noopener noreferrer"
                 data-magnetic
-                class="flex-1 py-2.5 text-center glass border border-white/10 hover:border-blue-500/50 text-neutral-300 hover:text-blue-400 font-medium rounded-lg transition-all duration-300"
+                class="flex-1 py-2.5 text-center glass border border-white/10 hover:border-[#A78BFA]/50 text-[#9A9990] hover:text-[#C4B5FD] font-medium rounded-lg transition-all duration-300"
               >
                 View Code
               </a>

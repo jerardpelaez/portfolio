@@ -17,9 +17,9 @@ const navItems = [
       <a
         href="/"
         data-magnetic
-        class="text-xl font-bold text-white hover:text-blue-400 transition-colors"
+        class="text-xl font-bold text-[#F0EDE8] hover:text-[#A78BFA] transition-colors"
       >
-        JP<span class="text-blue-400">.</span>
+        JP<span class="text-[#A78BFA]">.</span>
       </a>
 
       <!-- Desktop Navigation -->
@@ -28,10 +28,10 @@ const navItems = [
           <li>
             <a
               href={item.href}
-              class="text-neutral-400 hover:text-blue-400 font-medium transition-colors relative group"
+              class="text-[#9A9990] hover:text-[#C4B5FD] font-medium transition-colors relative group"
             >
               {item.label}
-              <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></span>
+              <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#A78BFA] to-[#C4B5FD] group-hover:w-full transition-all duration-300"></span>
             </a>
           </li>
         ))}
@@ -43,7 +43,7 @@ const navItems = [
         <a
           href="#contact"
           data-magnetic
-          class="hidden md:inline-flex items-center justify-center px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-lg transition-all duration-300 glow-subtle-blue hover:glow-blue"
+          class="hidden md:inline-flex items-center justify-center px-5 py-2.5 bg-[#8B5CF6] hover:bg-[#A78BFA] text-white font-medium rounded-lg transition-all duration-300 glow-subtle-purple hover:glow-purple"
         >
           Get in Touch
         </a>
