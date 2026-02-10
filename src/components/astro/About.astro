@@ -5,13 +5,13 @@ import cert1 from '../../assets/images/cert-1.jpg';
 import cert2 from '../../assets/images/cert-2.jpg';
 ---
 
-<section id="about" class="py-20 md:py-32 bg-[#0A0C0A] relative overflow-hidden">
+<section id="about" class="py-20 md:py-32 bg-dark-deep relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
       <!-- Image -->
       <div class="relative reveal">
         <div class="aspect-square rounded-2xl overflow-hidden glass p-1">
-          <div class="w-full h-full rounded-xl overflow-hidden bg-gradient-to-br from-[#1E211D]/40 to-[#8B5CF6]/10">
+          <div class="w-full h-full rounded-xl overflow-hidden bg-linear-to-br from-dark-elevated/40 to-primary-dark/10">
             <Image
               src={profileImage}
               alt="Jerard Pelaez - Senior Frontend Developer"
@@ -23,17 +23,17 @@ import cert2 from '../../assets/images/cert-2.jpg';
           </div>
         </div>
         <!-- Decorative elements -->
-        <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-br from-[#8B5CF6] to-[#A78BFA] rounded-2xl -z-10 glow-purple"></div>
+        <div class="absolute -bottom-6 -right-6 w-24 h-24 bg-linear-to-br from-primary-dark to-[#A78BFA] rounded-2xl -z-10 glow-purple"></div>
         <div class="absolute -top-6 -left-6 w-32 h-32 border-2 border-[#A78BFA]/30 rounded-2xl -z-10"></div>
       </div>
 
       <!-- Content -->
       <div class="reveal">
         <span class="inline-block text-[#A78BFA] font-semibold mb-4">About Me</span>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-[#F0EDE8] mb-6">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-dark-text mb-6">
           Passionate about creating impactful digital solutions
         </h2>
-        <div class="space-y-4 text-[#9A9990] text-lg leading-relaxed">
+        <div class="space-y-4 text-dark-muted text-lg leading-relaxed">
           <p>
             Frontend Developer with over 8 years of experience crafting responsive,
             high-performance web applications. I specialize in the Vue.js ecosystem
@@ -50,18 +50,18 @@ import cert2 from '../../assets/images/cert-2.jpg';
         <!-- Stats -->
         <div class="flex gap-12 mt-10 pt-10 border-t border-white/10">
           <div class="reveal">
-            <div class="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#C4B5FD] to-[#A78BFA]">8+</div>
-            <div class="text-sm text-[#9A9990] mt-1">Years Experience</div>
+            <div class="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-linear-to-r from-primary-light to-[#A78BFA]">8+</div>
+            <div class="text-sm text-dark-muted mt-1">Years Experience</div>
           </div>
           <div class="reveal">
-            <div class="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#A78BFA] to-[#C4B5FD]">5</div>
-            <div class="text-sm text-[#9A9990] mt-1">Companies Worked With</div>
+            <div class="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-linear-to-r from-[#A78BFA] to-primary-light">5</div>
+            <div class="text-sm text-dark-muted mt-1">Companies Worked With</div>
           </div>
         </div>
 
         <!-- Certifications -->
         <div class="mt-10 pt-10 border-t border-white/10">
-          <h3 class="text-xl font-semibold text-[#F0EDE8] mb-6 reveal">Certifications</h3>
+          <h3 class="text-xl font-semibold text-dark-text mb-6 reveal">Certifications</h3>
           <div class="grid grid-cols-2 gap-0">
             <a href={cert1.src} target="_blank" rel="noopener noreferrer" class="reveal group">
               <div class="glass border border-white/10 rounded-lg overflow-hidden hover:border-[#A78BFA]/50 transition-all duration-300">
@@ -76,7 +76,7 @@ import cert2 from '../../assets/images/cert-2.jpg';
               </div>
             </a>
             <a href={cert2.src} target="_blank" rel="noopener noreferrer" class="reveal group">
-              <div class="glass border border-white/10 rounded-lg overflow-hidden hover:border-[#C4B5FD]/50 transition-all duration-300">
+              <div class="glass border border-white/10 rounded-lg overflow-hidden hover:border-primary-light/50 transition-all duration-300">
                 <Image
                   src={cert2}
                   alt="Udemy Certificate 2"
@@ -95,7 +95,7 @@ import cert2 from '../../assets/images/cert-2.jpg';
           <a
             href="/Jerard_Pelaez_Resume.pdf"
             download="Jerard_Pelaez_Resume.pdf"
-            class="inline-flex items-center gap-2 px-6 py-3 glass border border-white/10 hover:border-[#A78BFA]/50 text-[#F0EDE8] hover:text-[#C4B5FD] font-medium rounded-lg transition-all duration-150"
+            class="inline-flex items-center gap-2 px-6 py-3 glass border border-white/10 hover:border-[#A78BFA]/50 text-dark-text hover:text-primary-light font-medium rounded-lg transition-all duration-150"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
