@@ -17,14 +17,14 @@ Personal portfolio website for **Jerard Pelaez**, a Senior Frontend Developer sp
 | Animation    | GSAP 3.14 (used in ProjectFilter only) |
 | Contact Form | Web3Forms API                       |
 | Build        | Vite (via Astro)                    |
-| Package Mgr  | npm                                 |
+| Package Mgr  | bun                                 |
 
 ## Commands
 
 ```bash
-npm run dev       # Start dev server at localhost:4321
-npm run build     # Production build to ./dist/
-npm run preview   # Preview production build locally
+bun run dev       # Start dev server at localhost:4321
+bun run build     # Production build to ./dist/
+bun run preview   # Preview production build locally
 ```
 
 No test framework is configured. No linter/formatter config exists.
