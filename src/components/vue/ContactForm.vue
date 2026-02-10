@@ -193,7 +193,7 @@ async function handleSubmit() {
           : 'border-white/10 focus:border-[#A78BFA] focus:glow-subtle-purple'"
         :aria-invalid="!!errors.message"
         :aria-describedby="errors.message ? 'message-error' : undefined"
-        placeholder="Tell me about your project..."
+        placeholder="Share what you'd like to discuss..."
       />
       <Transition name="slide-fade">
         <p
