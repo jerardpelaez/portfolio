@@ -1,0 +1,243 @@
+@import "tailwindcss";
+
+/* Custom CSS Variables */
+@theme {
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
+  /* Fluid Typography */
+  --text-fluid-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --text-fluid-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+  --text-fluid-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --text-fluid-lg: clamp(1.125rem, 1rem + 0.625vw, 1.5rem);
+  --text-fluid-xl: clamp(1.5rem, 1.25rem + 1.25vw, 2.5rem);
+  --text-fluid-2xl: clamp(2rem, 1.5rem + 2.5vw, 4rem);
+  --text-fluid-3xl: clamp(2.5rem, 1.75rem + 3.75vw, 5rem);
+
+  /* Touch-friendly sizes */
+  --touch-target-min: 44px;
+  --touch-target-comfortable: 48px;
+
+  /* Custom colors */
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-accent: #8b5cf6;
+  --color-success: #10b981;
+
+  /* Cinematic Dark Theme */
+  --color-dark-deep: #050505;
+  --color-dark-bg: #0a0a0a;
+  --color-dark-surface: #0a0a0a;
+  --color-dark-elevated: #111111;
+  --color-dark-text: #f5f5f5;
+  --color-dark-muted: #a3a3a3;
+
+  /* Glow Colors (reduced intensity) */
+  --color-glow-blue: rgba(59, 130, 246, 0.3);
+  --color-glow-purple: rgba(139, 92, 246, 0.3);
+  --color-glow-cyan: rgba(6, 182, 212, 0.25);
+
+  /* Glassmorphism (reduced blur) */
+  --glass-bg: rgba(17, 17, 17, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-blur: 6px;
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent iOS zoom on input focus */
+input, select, textarea {
+  font-size: 16px;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  background-color: var(--color-primary);
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  z-index: 1000;
+  transition: top 150ms ease;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Glassmorphism Utility */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+}
+
+.glass-strong {
+  background: rgba(17, 17, 17, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glow Utilities (reduced intensity) */
+.glow-blue {
+  box-shadow: 0 0 20px var(--color-glow-blue);
+}
+
+.glow-purple {
+  box-shadow: 0 0 20px var(--color-glow-purple);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 20px var(--color-glow-cyan);
+}
+
+.glow-subtle-blue {
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.2);
+}
+
+.glow-subtle-purple {
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.2);
+}
+
+/* Text Glow (reduced) */
+.text-glow-blue {
+  text-shadow: 0 0 12px rgba(59, 130, 246, 0.4);
+}
+
+.text-glow-purple {
+  text-shadow: 0 0 12px rgba(139, 92, 246, 0.4);
+}
+
+/* Bento Grid Utilities */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
+}
+
+.bento-lg {
+  grid-column: span 6;
+  grid-row: span 2;
+}
+
+.bento-wide {
+  grid-column: span 6;
+  grid-row: span 1;
+}
+
+.bento-tall {
+  grid-column: span 3;
+  grid-row: span 2;
+}
+
+.bento-sm {
+  grid-column: span 3;
+  grid-row: span 1;
+}
+
+@media (max-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .bento-lg,
+  .bento-wide {
+    grid-column: span 6;
+  }
+
+  .bento-tall,
+  .bento-sm {
+    grid-column: span 3;
+  }
+}
+
+@media (max-width: 640px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .bento-lg,
+  .bento-wide,
+  .bento-tall,
+  .bento-sm {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
+
+/* Gradient Border */
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), rgba(139, 92, 246, 0.5), transparent);
+}
+
+/* Dark Mode Focus Enhancement */
+:focus-visible {
+  outline: 3px solid rgba(59, 130, 246, 0.8);
+  outline-offset: 2px;
+}
+
+/* Simple hover transitions (150ms max) */
+a, button {
+  transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease, opacity 150ms ease;
+}

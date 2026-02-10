@@ -1,0 +1,111 @@
+---
+const skillCategories = [
+  {
+    title: 'Frontend (Primary)',
+    icon: 'layout',
+    size: 'lg',
+    skills: [
+      { name: 'Vue.js', level: 95 },
+      { name: 'TypeScript', level: 90 },
+      { name: 'Nuxt.js', level: 88 },
+      { name: 'JavaScript', level: 92 },
+      { name: 'CSS/SCSS', level: 90 },
+    ]
+  },
+  {
+    title: 'Frameworks & Libraries',
+    icon: 'layers',
+    size: 'wide',
+    skills: [
+      { name: 'Vuetify', level: 85 },
+      { name: 'Quasar', level: 82 },
+      { name: 'Tailwind CSS', level: 85 },
+    ]
+  },
+  {
+    title: 'Tools & Workflow',
+    icon: 'tool',
+    size: 'wide',
+    skills: [
+      { name: 'Git/GitHub', level: 90 },
+      { name: 'Figma', level: 80 },
+      { name: 'Azure', level: 75 },
+    ]
+  }
+];
+---
+
+<section id="skills" class="py-20 md:py-32 bg-[#0a0a0a] relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Header -->
+    <div class="text-center mb-16 reveal">
+      <span class="inline-block text-blue-400 font-semibold mb-4">My Skills</span>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+        Technologies I Work With
+      </h2>
+      <p class="text-lg text-neutral-400 max-w-2xl mx-auto">
+        I continuously expand my skill set to stay ahead in the ever-evolving tech landscape.
+        Here are the technologies I'm most proficient in.
+      </p>
+    </div>
+
+    <!-- Bento Skills Grid -->
+    <div class="bento-grid justify-center">
+      {skillCategories.map((category) => (
+        <div
+          class:list={[
+            'glass rounded-2xl p-8 reveal hover:glow-subtle-blue transition-all duration-150',
+            category.size === 'lg' ? 'bento-lg' : 'bento-wide'
+          ]}
+        >
+          <!-- Category Header -->
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center">
+              {category.icon === 'layout' && (
+                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                </svg>
+              )}
+              {category.icon === 'layers' && (
+                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                </svg>
+              )}
+              {category.icon === 'tool' && (
+                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              )}
+            </div>
+            <h3 class="text-xl font-bold text-white">{category.title}</h3>
+          </div>
+
+          <!-- Skills List -->
+          <div class="space-y-5">
+            {category.skills.map((skill) => (
+              <div>
+                <div class="flex justify-between items-center mb-2">
+                  <span class="font-medium text-neutral-300">{skill.name}</span>
+                  <span class="text-sm text-neutral-500">{skill.level}%</span>
+                </div>
+                <div class="h-2 bg-neutral-800 rounded-full overflow-hidden">
+                  <div
+                    class="skill-bar-fill h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
+                    style={`width: ${skill.level}%`}
+                    data-target={skill.level}
+                    role="progressbar"
+                    aria-valuenow={skill.level}
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-label={`${skill.name} proficiency: ${skill.level}%`}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
