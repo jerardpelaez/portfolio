@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-
-interface NavItem {
-  label: string
-  href: string
-}
+import type { NavItem } from '../../data/navigation'
 
 defineProps<{
   navItems: NavItem[]
@@ -90,7 +86,7 @@ function closeMenu() {
               <a
                 href="#contact"
                 @click="closeMenu"
-                class="block w-full py-4 text-center bg-[#8B5CF6] hover:bg-[#A78BFA] text-white font-medium rounded-lg transition-colors glow-subtle-purple"
+                class="block w-full py-4 text-center bg-primary-dark hover:bg-primary text-white font-medium rounded-lg transition-colors glow-subtle-purple"
               >
                 Get in Touch
               </a>

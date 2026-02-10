@@ -12,15 +12,15 @@ const skillsByCategory = skillCategories.map(category => ({
 }))
 ---
 
-<section id="skills" class="py-20 md:py-32 bg-[#10120F] relative overflow-hidden">
+<section id="skills" class="py-20 md:py-32 bg-dark-bg relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <!-- Header -->
     <div class="text-center mb-16 reveal">
-      <span class="inline-block text-[#A78BFA] font-semibold mb-4">My Skills</span>
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-[#F0EDE8] mb-6">
+      <span class="inline-block text-primary font-semibold mb-4">My Skills</span>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-dark-text mb-6">
         Technologies I Work With
       </h2>
-      <p class="text-lg text-[#9A9990] max-w-2xl mx-auto">
+      <p class="text-lg text-dark-muted max-w-2xl mx-auto">
         I continuously expand my skill set to stay ahead in the ever-evolving tech landscape.
       </p>
     </div>
@@ -35,15 +35,17 @@ const skillsByCategory = skillCategories.map(category => ({
               class="w-2.5 h-2.5 rounded-full"
               style={`background-color: ${category.color}; box-shadow: 0 0 12px ${category.glowColor};`}
             />
-            <h3 class="text-lg font-semibold text-[#F0EDE8]">
+            <h3 class="text-lg font-semibold text-dark-text">
               {category.name}
             </h3>
           </div>
 
           <!-- Cards Grid -->
-          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 lg:gap-5">
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 lg:gap-5" role="list">
             {categorySkills.map((skill) => (
               <div
+                role="listitem"
+                aria-label={`${skill.name} - ${category.name}`}
                 class="tech-card group relative flex flex-col items-center justify-center rounded-2xl border p-5 transition-all duration-200 hover:-translate-y-1 hover:scale-[1.02]"
                 style={`
                   background: rgba(22, 25, 22, 0.6);
@@ -52,8 +54,6 @@ const skillsByCategory = skillCategories.map(category => ({
                   border-color: ${category.color}15;
                   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), inset 0 0 0 1px ${category.color}08;
                 `}
-                data-hover-border={`${category.color}40`}
-                data-hover-glow={category.glowColor}
               >
                 <!-- Icon -->
                 <div class="flex items-center justify-center w-full h-20 mb-3">
@@ -65,7 +65,7 @@ const skillsByCategory = skillCategories.map(category => ({
                 </div>
 
                 <!-- Name -->
-                <span class="text-sm font-semibold text-[#F0EDE8] text-center w-full">
+                <span class="text-sm font-semibold text-dark-text text-center w-full">
                   {skill.name}
                 </span>
               </div>

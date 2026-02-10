@@ -1,5 +1,6 @@
 ---
 import ProjectFilter from '../vue/ProjectFilter.vue';
+import { projects as projectData } from '../../data/projects';
 import gittapImage from '../../assets/images/gittap.png';
 import documentPlatformImage from '../../assets/images/document-platform.png';
 import productCatalogImage from '../../assets/images/product-catalog.png';
@@ -7,61 +8,19 @@ import liveGamingImage from '../../assets/images/live-gaming.png';
 import corporateLearningImage from '../../assets/images/corporate-learning.png';
 import financialServicesImage from '../../assets/images/financial-services.png';
 
-const projects = [
-  {
-    id: '1',
-    title: 'GitTap',
-    description: 'Contributed to a job recruitment platform connecting IT professionals with opportunities in Japan. Collaborated with the engineering team on advanced job search, filtering, and responsive interface features.',
-    image: gittapImage.src,
-    tags: ['Vue.js', 'Vuetify', 'TypeScript'],
-    demoUrl: 'https://www.gittap.jp/',
-    featured: true
-  },
-  {
-    id: '2',
-    title: 'Enterprise Document Platform',
-    description: 'Worked with a cross-functional team on a document automation platform for legal workflows. Developed template management, clause libraries, and real-time collaboration features.',
-    image: documentPlatformImage.src,
-    tags: ['Vue.js', 'TypeScript', 'REST APIs'],
-    demoUrl: 'https://avvoka.com/',
-    featured: true
-  },
-  {
-    id: '3',
-    title: 'E-Commerce Product Catalog',
-    description: 'Collaborated on a B2B chemical product catalog with the development team. Built advanced search, filtering, technical specifications, and quote request workflows.',
-    image: productCatalogImage.src,
-    tags: ['Nuxt.js', 'Vuetify', 'TypeScript'],
-    demoUrl: 'https://www.caplinq.com/',
-    featured: false
-  },
-  {
-    id: '4',
-    title: 'Live Gaming Platform',
-    description: 'Part of the frontend team delivering a real-time multiplayer gaming application. Implemented smooth UX, WebSocket-based live updates, and interactive features.',
-    image: liveGamingImage.src,
-    tags: ['Vue.js', 'TypeScript', 'WebSocket'],
-    demoUrl: 'https://www.og6666.com/',
-    featured: false
-  },
-  {
-    id: '5',
-    title: 'Financial Services Dashboard',
-    description: 'Contributed to a lending management system within an Agile team. Developed loan processing workflows, payment tracking, customer management, and analytics dashboards.',
-    image: financialServicesImage.src,
-    tags: ['Vue.js', 'REST APIs', 'Chart.js'],
-    demoUrl: 'https://cashbee.ph/',
-    featured: false
-  },
-  {
-    id: '6',
-    title: 'Corporate Learning Platform',
-    description: 'Worked with a product team on an online education platform for business professionals. Built video lesson features, progress tracking, and certification management.',
-    image: corporateLearningImage.src,
-    tags: ['Vue.js', 'JavaScript', 'Agile'],
-    demoUrl: 'https://www.bizmates.ph/',
-    featured: false
-  }];
+const imageMap: Record<string, string> = {
+  '1': gittapImage.src,
+  '2': documentPlatformImage.src,
+  '3': productCatalogImage.src,
+  '4': liveGamingImage.src,
+  '5': financialServicesImage.src,
+  '6': corporateLearningImage.src,
+};
+
+const projects = projectData.map(p => ({
+  ...p,
+  image: imageMap[p.id],
+}));
 ---
 
 <section id="projects" class="py-20 md:py-32 bg-dark-deep relative overflow-hidden">

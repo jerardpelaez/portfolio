@@ -1,37 +1,17 @@
 ---
 import ContactForm from '../vue/ContactForm.vue';
-
-const contactInfo = [
-  {
-    icon: 'email',
-    label: 'Email',
-    value: 'pelaezjerard@gmail.com',
-    href: 'mailto:pelaezjerard@gmail.com'
-  },
-  {
-    icon: 'location',
-    label: 'Location',
-    value: 'Las Pinas, Philippines',
-    href: null
-  },
-  {
-    icon: 'availability',
-    label: 'Availability',
-    value: 'Open to opportunities',
-    href: null
-  }
-];
+import { contactInfo, socialLinks } from '../../data/contact';
 ---
 
-<section id="contact" class="py-20 md:py-32 bg-[#10120F] relative overflow-hidden">
+<section id="contact" class="py-20 md:py-32 bg-dark-bg relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <!-- Header -->
     <div class="text-center mb-16 reveal">
-      <span class="inline-block text-[#A78BFA] font-semibold mb-4">Get In Touch</span>
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-[#F0EDE8] mb-6">
+      <span class="inline-block text-primary font-semibold mb-4">Get In Touch</span>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-dark-text mb-6">
         Let's Connect
       </h2>
-      <p class="text-lg text-[#9A9990] max-w-2xl mx-auto">
+      <p class="text-lg text-dark-muted max-w-2xl mx-auto">
         Interested in discussing opportunities or connecting professionally?
         I'm always open to exploring new challenges and collaborations.
       </p>
@@ -42,32 +22,32 @@ const contactInfo = [
       <div class="lg:col-span-2 space-y-8">
         {contactInfo.map((info) => (
           <div class="flex items-start gap-4 reveal">
-            <div class="w-12 h-12 bg-[#A78BFA]/20 rounded-xl flex items-center justify-center flex-shrink-0 border border-[#A78BFA]/30">
+            <div class="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0 border border-primary/30">
               {info.icon === 'email' && (
-                <svg class="w-6 h-6 text-[#A78BFA]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               )}
               {info.icon === 'location' && (
-                <svg class="w-6 h-6 text-[#A78BFA]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               )}
               {info.icon === 'availability' && (
-                <svg class="w-6 h-6 text-[#A78BFA]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
               )}
             </div>
             <div>
-              <p class="text-sm text-[#9A9990] mb-1">{info.label}</p>
+              <p class="text-sm text-dark-muted mb-1">{info.label}</p>
               {info.href ? (
-                <a href={info.href} class="text-lg font-medium text-[#F0EDE8] hover:text-[#C4B5FD] transition-colors">
+                <a href={info.href} class="text-lg font-medium text-dark-text hover:text-primary-light transition-colors">
                   {info.value}
                 </a>
               ) : (
-                <p class="text-lg font-medium text-[#F0EDE8]">{info.value}</p>
+                <p class="text-lg font-medium text-dark-text">{info.value}</p>
               )}
             </div>
           </div>
@@ -75,13 +55,13 @@ const contactInfo = [
 
         <!-- Social Links -->
         <div class="pt-8 border-t border-white/10 reveal">
-          <p class="text-sm text-[#9A9990] mb-4">Connect with me</p>
+          <p class="text-sm text-dark-muted mb-4">Connect with me</p>
           <div class="flex gap-4">
             <a
               href="https://github.com/jerardpelaez"
               target="_blank"
               rel="noopener noreferrer"
-              class="w-12 h-12 glass rounded-lg flex items-center justify-center text-[#9A9990] hover:text-[#C4B5FD] hover:glow-subtle-purple transition-all duration-150"
+              class="w-12 h-12 glass rounded-lg flex items-center justify-center text-dark-muted hover:text-primary-light hover:glow-subtle-purple transition-all duration-150"
               aria-label="GitHub"
             >
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -92,7 +72,7 @@ const contactInfo = [
               href="https://www.linkedin.com/in/jerard-pelaez-770a46198/"
               target="_blank"
               rel="noopener noreferrer"
-              class="w-12 h-12 glass rounded-lg flex items-center justify-center text-[#9A9990] hover:text-[#C4B5FD] hover:glow-subtle-purple transition-all duration-150"
+              class="w-12 h-12 glass rounded-lg flex items-center justify-center text-dark-muted hover:text-primary-light hover:glow-subtle-purple transition-all duration-150"
               aria-label="LinkedIn"
             >
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

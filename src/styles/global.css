@@ -124,7 +124,7 @@ input, select, textarea {
 }
 
 .glass-strong {
-  background: rgba(17, 17, 17, 0.85);
+  background: rgba(22, 25, 22, 0.85);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -139,19 +139,11 @@ input, select, textarea {
   box-shadow: 0 0 20px var(--color-glow-soft);
 }
 
-.glow-subtle {
-  box-shadow: 0 0 12px rgba(167, 139, 250, 0.15);
-}
-
 .glow-subtle-purple {
   box-shadow: 0 0 12px rgba(167, 139, 250, 0.18);
 }
 
 /* Text Glow - Subtle lavender */
-.text-glow {
-  text-shadow: 0 0 12px rgba(167, 139, 250, 0.35);
-}
-
 .text-glow-purple {
   text-shadow: 0 0 12px rgba(167, 139, 250, 0.35);
 }
@@ -220,12 +212,6 @@ input, select, textarea {
   right: 0;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.4), rgba(196, 181, 253, 0.3), transparent);
-}
-
-/* Dark Mode Focus Enhancement */
-:focus-visible {
-  outline: 3px solid rgba(167, 139, 250, 0.7);
-  outline-offset: 2px;
 }
 
 /* Simple hover transitions (150ms max) */

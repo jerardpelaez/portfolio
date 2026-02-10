@@ -130,7 +130,7 @@ async function handleSubmit() {
         class="w-full px-4 py-3 rounded-lg border bg-dark-surface/50 text-dark-text placeholder-dark-muted transition-all duration-300 focus:ring-0 focus:outline-none focus:scale-[1.01]"
         :class="errors.name
           ? 'border-red-500 focus:border-red-500'
-          : 'border-white/10 focus:border-[#A78BFA] focus:glow-subtle-purple'"
+          : 'border-white/10 focus:border-primary focus:glow-subtle-purple'"
         :aria-invalid="!!errors.name"
         :aria-describedby="errors.name ? 'name-error' : undefined"
         placeholder="Your name"
@@ -161,7 +161,7 @@ async function handleSubmit() {
         class="w-full px-4 py-3 rounded-lg border bg-dark-surface/50 text-dark-text placeholder-dark-muted transition-all duration-300 focus:ring-0 focus:outline-none focus:scale-[1.01]"
         :class="errors.email
           ? 'border-red-500 focus:border-red-500'
-          : 'border-white/10 focus:border-[#A78BFA] focus:glow-subtle-purple'"
+          : 'border-white/10 focus:border-primary focus:glow-subtle-purple'"
         :aria-invalid="!!errors.email"
         :aria-describedby="errors.email ? 'email-error' : undefined"
         placeholder="your@email.com"
@@ -190,7 +190,7 @@ async function handleSubmit() {
         class="w-full px-4 py-3 rounded-lg border bg-dark-surface/50 text-dark-text placeholder-dark-muted transition-all duration-300 focus:ring-0 focus:outline-none focus:scale-[1.01] resize-y min-h-32"
         :class="errors.message
           ? 'border-red-500 focus:border-red-500'
-          : 'border-white/10 focus:border-[#A78BFA] focus:glow-subtle-purple'"
+          : 'border-white/10 focus:border-primary focus:glow-subtle-purple'"
         :aria-invalid="!!errors.message"
         :aria-describedby="errors.message ? 'message-error' : undefined"
         placeholder="Share what you'd like to discuss..."
@@ -211,8 +211,7 @@ async function handleSubmit() {
     <button
       type="submit"
       :disabled="isSubmitting"
-      data-magnetic
-      class="w-full py-4 px-6 bg-primary-dark hover:bg-[#A78BFA] disabled:bg-primary-dark/50 text-white font-medium rounded-lg transition-all duration-300 flex items-center justify-center gap-2 touch-manipulation glow-subtle-purple hover:glow-purple"
+      class="w-full py-4 px-6 bg-primary-dark hover:bg-primary disabled:bg-primary-dark/50 text-white font-medium rounded-lg transition-all duration-300 flex items-center justify-center gap-2 touch-manipulation glow-subtle-purple hover:glow-purple"
     >
       <svg
         v-if="isSubmitting"

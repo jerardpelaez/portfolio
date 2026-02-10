@@ -1,17 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { gsap } from 'gsap'
-
-interface Project {
-  id: string
-  title: string
-  description: string
-  image: string
-  tags: string[]
-  demoUrl?: string
-  codeUrl?: string
-  featured?: boolean
-}
+import type { Project } from '../../data/projects'
 
 const props = defineProps<{
   projects: Project[]
@@ -78,8 +68,8 @@ onMounted(() => {
         :aria-controls="'projects-panel'"
         class="px-4 py-2 rounded-full font-medium transition-all duration-300 touch-manipulation"
         :class="activeFilter === tag
-          ? 'bg-[#8B5CF6] text-white glow-subtle-purple'
-          : 'glass text-[#9A9990] hover:text-[#F0EDE8] hover:bg-white/10'"
+          ? 'bg-primary-dark text-white glow-subtle-purple'
+          : 'glass text-dark-muted hover:text-dark-text hover:bg-white/10'"
       >
         {{ tag }}
       </button>
@@ -100,7 +90,7 @@ onMounted(() => {
         >
           <!-- Project Image -->
           <div
-            class="overflow-hidden bg-neutral-900"
+            class="overflow-hidden bg-dark-surface"
             :class="project.featured ? 'aspect-video' : 'aspect-[16/10]'"
           >
             <img
@@ -113,10 +103,10 @@ onMounted(() => {
 
           <!-- Project Content -->
           <div class="p-6">
-            <h3 class="text-xl font-bold text-[#F0EDE8] mb-2 group-hover:text-[#C4B5FD] transition-colors">
+            <h3 class="text-xl font-bold text-dark-text mb-2 group-hover:text-primary-light transition-colors">
               {{ project.title }}
             </h3>
-            <p class="text-[#9A9990] mb-4 line-clamp-2">
+            <p class="text-dark-muted mb-4 line-clamp-2">
               {{ project.description }}
             </p>
 
@@ -125,7 +115,7 @@ onMounted(() => {
               <span
                 v-for="tag in project.tags"
                 :key="tag"
-                class="px-3 py-1 text-xs font-medium bg-[#A78BFA]/20 text-[#C4B5FD] rounded-full border border-[#A78BFA]/30"
+                class="px-3 py-1 text-xs font-medium bg-primary/20 text-primary-light rounded-full border border-primary/30"
               >
                 {{ tag }}
               </span>
@@ -138,8 +128,7 @@ onMounted(() => {
                 :href="project.demoUrl"
                 target="_blank"
                 rel="noopener noreferrer"
-                data-magnetic
-                class="flex-1 py-2.5 text-center bg-[#8B5CF6] hover:bg-[#A78BFA] text-white font-medium rounded-lg transition-all duration-300"
+                class="flex-1 py-2.5 text-center bg-primary-dark hover:bg-primary text-white font-medium rounded-lg transition-all duration-300"
               >
                 Live Demo
               </a>
@@ -148,8 +137,7 @@ onMounted(() => {
                 :href="project.codeUrl"
                 target="_blank"
                 rel="noopener noreferrer"
-                data-magnetic
-                class="flex-1 py-2.5 text-center glass border border-white/10 hover:border-[#A78BFA]/50 text-[#9A9990] hover:text-[#C4B5FD] font-medium rounded-lg transition-all duration-300"
+                class="flex-1 py-2.5 text-center glass border border-white/10 hover:border-primary/50 text-dark-muted hover:text-primary-light font-medium rounded-lg transition-all duration-300"
               >
                 View Code
               </a>
@@ -164,7 +152,7 @@ onMounted(() => {
       v-if="filteredProjects.length === 0"
       class="text-center py-12"
     >
-      <p class="text-neutral-500">
+      <p class="text-dark-muted">
         No projects found for "{{ activeFilter }}".
       </p>
     </div>

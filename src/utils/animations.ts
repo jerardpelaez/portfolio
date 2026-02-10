@@ -9,17 +9,9 @@ export function initRevealAnimations() {
   });
 }
 
-export function initSkillBars() {
-  // Set skill bars to their target width immediately
-  document.querySelectorAll('.skill-bar-fill').forEach(el => {
-    const target = (el as HTMLElement).dataset.target || '0';
-    (el as HTMLElement).style.width = target + '%';
-  });
-}
-
 export function initHeroAnimation() {
   // Show hero elements immediately
-  document.querySelectorAll('.hero-badge, .hero-title, .hero-subtitle, .hero-cta, .hero-tech').forEach(el => {
+  document.querySelectorAll('.hero-title, .hero-subtitle, .hero-cta, .hero-tech').forEach(el => {
     (el as HTMLElement).style.opacity = '1';
     (el as HTMLElement).style.transform = 'none';
   });
@@ -28,5 +20,4 @@ export function initHeroAnimation() {
 export function initAllAnimations() {
   initHeroAnimation();
   initRevealAnimations();
-  initSkillBars();
 }
