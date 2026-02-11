@@ -127,10 +127,11 @@ async function handleSubmit() {
         v-model="form.name"
         type="text"
         autocomplete="name"
-        class="w-full px-4 py-3 rounded-lg border bg-dark-surface/50 text-dark-text placeholder-dark-muted transition-all duration-300 focus:ring-0 focus:outline-none focus:scale-[1.01]"
+        class="w-full px-4 py-3 rounded-lg border bg-dark-surface/50 text-dark-text placeholder-dark-muted transition-all duration-300 focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-1 focus-visible:ring-offset-dark-surface"
         :class="errors.name
           ? 'border-red-500 focus:border-red-500'
           : 'border-white/10 focus:border-primary focus:glow-subtle-purple'"
+        aria-required="true"
         :aria-invalid="!!errors.name"
         :aria-describedby="errors.name ? 'name-error' : undefined"
         placeholder="Your name"
@@ -158,10 +159,11 @@ async function handleSubmit() {
         type="email"
         autocomplete="email"
         inputmode="email"
-        class="w-full px-4 py-3 rounded-lg border bg-dark-surface/50 text-dark-text placeholder-dark-muted transition-all duration-300 focus:ring-0 focus:outline-none focus:scale-[1.01]"
+        class="w-full px-4 py-3 rounded-lg border bg-dark-surface/50 text-dark-text placeholder-dark-muted transition-all duration-300 focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-1 focus-visible:ring-offset-dark-surface"
         :class="errors.email
           ? 'border-red-500 focus:border-red-500'
           : 'border-white/10 focus:border-primary focus:glow-subtle-purple'"
+        aria-required="true"
         :aria-invalid="!!errors.email"
         :aria-describedby="errors.email ? 'email-error' : undefined"
         placeholder="your@email.com"
@@ -187,10 +189,11 @@ async function handleSubmit() {
         id="message"
         v-model="form.message"
         rows="5"
-        class="w-full px-4 py-3 rounded-lg border bg-dark-surface/50 text-dark-text placeholder-dark-muted transition-all duration-300 focus:ring-0 focus:outline-none focus:scale-[1.01] resize-y min-h-32"
+        class="w-full px-4 py-3 rounded-lg border bg-dark-surface/50 text-dark-text placeholder-dark-muted transition-all duration-300 focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-1 focus-visible:ring-offset-dark-surface resize-y min-h-32"
         :class="errors.message
           ? 'border-red-500 focus:border-red-500'
           : 'border-white/10 focus:border-primary focus:glow-subtle-purple'"
+        aria-required="true"
         :aria-invalid="!!errors.message"
         :aria-describedby="errors.message ? 'message-error' : undefined"
         placeholder="Share what you'd like to discuss..."
@@ -211,6 +214,7 @@ async function handleSubmit() {
     <button
       type="submit"
       :disabled="isSubmitting"
+      :aria-busy="isSubmitting"
       class="w-full py-4 px-6 bg-primary-dark hover:bg-primary disabled:bg-primary-dark/50 text-white font-medium rounded-lg transition-all duration-300 flex items-center justify-center gap-2 touch-manipulation glow-subtle-purple hover:glow-purple"
     >
       <svg

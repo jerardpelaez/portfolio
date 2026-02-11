@@ -21,7 +21,7 @@ export const contactInfo: ContactInfo[] = [
   {
     icon: 'location',
     label: 'Location',
-    value: 'Las Pinas, Philippines',
+    value: 'Las Piñas, Philippines',
     href: null
   },
   {

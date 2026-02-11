@@ -1,4 +1,4 @@
-import type { Skill, SkillCategory } from '../types/constellation'
+import type { Skill, SkillCategory } from '../types/skills'
 
 export const skillCategories: SkillCategory[] = [
   {

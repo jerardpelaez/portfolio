@@ -71,6 +71,9 @@ const skillsByCategory = skillCategories.map(category => ({
                 <span class="text-sm font-semibold text-dark-text text-center w-full">
                   {skill.name}
                 </span>
+                <span class="text-xs text-dark-muted mt-0.5">
+                  {skill.level >= 85 ? 'Expert' : skill.level >= 70 ? 'Proficient' : 'Familiar'}
+                </span>
               </div>
             ))}
           </div>

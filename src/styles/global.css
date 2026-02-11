@@ -4,19 +4,6 @@
 @theme {
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 
-  /* Fluid Typography */
-  --text-fluid-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
-  --text-fluid-sm: clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
-  --text-fluid-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
-  --text-fluid-lg: clamp(1.125rem, 1rem + 0.625vw, 1.5rem);
-  --text-fluid-xl: clamp(1.5rem, 1.25rem + 1.25vw, 2.5rem);
-  --text-fluid-2xl: clamp(2rem, 1.5rem + 2.5vw, 4rem);
-  --text-fluid-3xl: clamp(2.5rem, 1.75rem + 3.75vw, 5rem);
-
-  /* Touch-friendly sizes */
-  --touch-target-min: 44px;
-  --touch-target-comfortable: 48px;
-
   /* Custom colors - Forest Lavender Theme */
   --color-primary: #A78BFA;
   --color-primary-dark: #8B5CF6;
@@ -53,6 +40,11 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scroll margin for fixed header */
+section[id] {
+  scroll-margin-top: 5rem;
 }
 
 /* Prevent iOS zoom on input focus */
@@ -103,6 +95,63 @@ input, select, textarea {
   border: 0;
 }
 
+/* Scroll reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* Hero load animations */
+.hero-animate {
+  animation: heroFadeIn 0.8s ease-out forwards;
+}
+
+.hero-animate-delay-1 { animation-delay: 0.2s; opacity: 0; }
+.hero-animate-delay-2 { animation-delay: 0.4s; opacity: 0; }
+.hero-animate-delay-3 { animation-delay: 0.6s; opacity: 0; }
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll indicator bounce */
+.scroll-indicator {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* Subtle hero background glow */
+@keyframes pulseSlow {
+  0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.5; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 8s ease-in-out infinite;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -112,6 +161,20 @@ input, select, textarea {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .hero-animate,
+  .hero-animate-delay-1,
+  .hero-animate-delay-2,
+  .hero-animate-delay-3 {
+    opacity: 1;
+    animation: none;
   }
 }
 
@@ -165,11 +228,6 @@ input, select, textarea {
   grid-row: span 1;
 }
 
-.bento-sm {
-  grid-column: span 3;
-  grid-row: span 1;
-}
-
 @media (max-width: 1024px) {
   .bento-grid {
     grid-template-columns: repeat(6, 1fr);
@@ -178,10 +236,6 @@ input, select, textarea {
   .bento-lg,
   .bento-wide {
     grid-column: span 6;
-  }
-
-  .bento-sm {
-    grid-column: span 3;
   }
 }
 
@@ -192,8 +246,7 @@ input, select, textarea {
   }
 
   .bento-lg,
-  .bento-wide,
-  .bento-sm {
+  .bento-wide {
     grid-column: span 1;
     grid-row: span 1;
   }
@@ -216,5 +269,5 @@ input, select, textarea {
 
 /* Simple hover transitions (150ms max) */
 a, button {
-  transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease, opacity 150ms ease;
+  transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease;
 }

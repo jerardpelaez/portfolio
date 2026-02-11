@@ -1,23 +1,38 @@
-// Simplified animations - no GSAP, instant reveal
-// All elements are shown immediately for better performance
+// Scroll-reveal animations using IntersectionObserver
 
-export function initRevealAnimations() {
-  // Show all elements immediately
-  document.querySelectorAll('.reveal').forEach(el => {
-    (el as HTMLElement).style.opacity = '1';
-    (el as HTMLElement).style.transform = 'none';
-  });
+export function initRevealAnimations(): void {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+  if (prefersReducedMotion) {
+    document.querySelectorAll('.reveal').forEach((el) => {
+      (el as HTMLElement).classList.add('revealed')
+    })
+    return
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed')
+          observer.unobserve(entry.target)
+        }
+      })
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+  )
+
+  document.querySelectorAll('.reveal').forEach((el) => {
+    observer.observe(el)
+  })
 }
 
-export function initHeroAnimation() {
-  // Show hero elements immediately
-  document.querySelectorAll('.hero-title, .hero-subtitle, .hero-cta, .hero-tech').forEach(el => {
-    (el as HTMLElement).style.opacity = '1';
-    (el as HTMLElement).style.transform = 'none';
-  });
+export function initHeroAnimation(): void {
+  // Hero elements use CSS animations that play on load - no JS needed
+  // This function is kept for compatibility
 }
 
-export function initAllAnimations() {
-  initHeroAnimation();
-  initRevealAnimations();
+export function initAllAnimations(): void {
+  initHeroAnimation()
+  initRevealAnimations()
 }

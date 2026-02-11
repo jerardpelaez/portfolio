@@ -9,6 +9,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://jerardpelaez.github.io',
   base: '/portfolio',
+  trailingSlash: 'never',
   integrations: [vue(), sitemap()],
 
   vite: {

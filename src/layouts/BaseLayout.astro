@@ -34,14 +34,18 @@ const ogImageURL = new URL(`${import.meta.env.BASE_URL}/favicon.png`, Astro.site
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL.href} />
     <meta property="og:image" content={ogImageURL.href} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Jerard Pelaez Portfolio" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL.href} />
 
     <link rel="icon" type="image/png" href={`${import.meta.env.BASE_URL}/favicon.png`} />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/devicon.min.css" />
     <title>{title}</title>
 
     <!-- Structured Data -->
@@ -50,7 +54,9 @@ const ogImageURL = new URL(`${import.meta.env.BASE_URL}/favicon.png`, Astro.site
       "@type": "Person",
       "name": "Jerard Pelaez",
       "jobTitle": "Senior Frontend Developer",
-      "url": Astro.site?.href,
+      "url": canonicalURL.href,
+      "description": "Senior Frontend Developer specializing in Vue.js, Nuxt, and TypeScript with 8+ years of experience building enterprise web applications.",
+      "image": ogImageURL.href,
       "sameAs": [
         "https://github.com/jerardpelaez",
         "https://www.linkedin.com/in/jerard-pelaez-770a46198/"

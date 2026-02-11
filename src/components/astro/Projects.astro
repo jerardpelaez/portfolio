@@ -1,4 +1,5 @@
 ---
+import { getImage } from 'astro:assets';
 import ProjectFilter from '../vue/ProjectFilter.vue';
 import { projects as projectData } from '../../data/projects';
 import gittapImage from '../../assets/images/gittap.png';
@@ -8,14 +9,24 @@ import liveGamingImage from '../../assets/images/live-gaming.png';
 import corporateLearningImage from '../../assets/images/corporate-learning.png';
 import financialServicesImage from '../../assets/images/financial-services.png';
 
-const imageMap: Record<string, string> = {
-  '1': gittapImage.src,
-  '2': documentPlatformImage.src,
-  '3': productCatalogImage.src,
-  '4': liveGamingImage.src,
-  '5': financialServicesImage.src,
-  '6': corporateLearningImage.src,
-};
+const imageEntries = [
+  { id: '1', src: gittapImage },
+  { id: '2', src: documentPlatformImage },
+  { id: '3', src: productCatalogImage },
+  { id: '4', src: liveGamingImage },
+  { id: '5', src: financialServicesImage },
+  { id: '6', src: corporateLearningImage },
+];
+
+const optimizedImages = await Promise.all(
+  imageEntries.map(async (entry) => {
+    const optimized = await getImage({ src: entry.src, format: 'webp', width: 800, quality: 80 });
+    return { id: entry.id, src: optimized.src };
+  })
+);
+
+const imageMap: Record<string, string> = {};
+optimizedImages.forEach(({ id, src }) => { imageMap[id] = src; });
 
 const projects = projectData.map(p => ({
   ...p,

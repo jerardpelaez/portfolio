@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
-import { gsap } from 'gsap'
 import type { Project } from '../../data/projects'
 
 const props = defineProps<{
@@ -36,22 +35,12 @@ function checkReducedMotion(): boolean {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches
 }
 
-onMounted(() => {
-  if (checkReducedMotion()) return
+const shouldAnimate = ref(false)
 
-  gsap.utils.toArray<HTMLElement>('.project-card').forEach((card, index) => {
-    gsap.fromTo(
-      card,
-      { y: 40, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        delay: index * 0.1,
-        ease: 'power3.out'
-      }
-    )
-  })
+onMounted(() => {
+  if (!checkReducedMotion()) {
+    shouldAnimate.value = true
+  }
 })
 </script>
 
@@ -86,7 +75,8 @@ onMounted(() => {
           v-for="(project, index) in filteredProjects"
           :key="project.id"
           class="project-card group glass rounded-2xl overflow-hidden hover:glow-subtle-purple transition-all duration-500"
-          :class="project.featured ? 'bento-lg' : 'bento-wide'"
+          :class="[project.featured ? 'bento-lg' : 'bento-wide', shouldAnimate ? 'card-animate' : '']"
+          :style="shouldAnimate ? { '--index': index } as any : {}"
         >
           <!-- Project Image -->
           <div
@@ -173,5 +163,29 @@ onMounted(() => {
 
 .list-move {
   transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-animate {
+  animation: fadeSlideUp 0.6s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+  animation-delay: calc(var(--index, 0) * 0.1s);
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-animate {
+    animation: none;
+    opacity: 1;
+  }
 }
 </style>

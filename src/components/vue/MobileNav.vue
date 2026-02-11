@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, watch, nextTick, onUnmounted } from 'vue'
 import type { NavItem } from '../../data/navigation'
 
 defineProps<{
@@ -7,13 +7,53 @@ defineProps<{
 }>()
 
 const isOpen = ref(false)
+const menuPanel = ref<HTMLElement | null>(null)
+const hamburgerButton = ref<HTMLElement | null>(null)
+
+function handleKeydown(e: KeyboardEvent) {
+  if (!isOpen.value) return
+
+  if (e.key === 'Escape') {
+    closeMenu()
+    return
+  }
+
+  if (e.key === 'Tab') {
+    const focusableEls = menuPanel.value?.querySelectorAll(
+      'a[href], button:not([disabled]), input, textarea, select, [tabindex]:not([tabindex="-1"])'
+    )
+    if (!focusableEls?.length) return
+
+    const firstEl = focusableEls[0] as HTMLElement
+    const lastEl = focusableEls[focusableEls.length - 1] as HTMLElement
+
+    if (e.shiftKey && document.activeElement === firstEl) {
+      e.preventDefault()
+      lastEl.focus()
+    } else if (!e.shiftKey && document.activeElement === lastEl) {
+      e.preventDefault()
+      firstEl.focus()
+    }
+  }
+}
 
 watch(isOpen, (open) => {
   if (open) {
     document.body.style.overflow = 'hidden'
+    document.addEventListener('keydown', handleKeydown)
+    nextTick(() => {
+      const firstLink = menuPanel.value?.querySelector('a')
+      firstLink?.focus()
+    })
   } else {
     document.body.style.overflow = ''
+    document.removeEventListener('keydown', handleKeydown)
   }
+})
+
+onUnmounted(() => {
+  document.removeEventListener('keydown', handleKeydown)
+  document.body.style.overflow = ''
 })
 
 function toggle() {
@@ -22,6 +62,9 @@ function toggle() {
 
 function closeMenu() {
   isOpen.value = false
+  nextTick(() => {
+    hamburgerButton.value?.focus()
+  })
 }
 </script>
 
@@ -29,6 +72,7 @@ function closeMenu() {
   <div class="relative">
     <!-- Hamburger button -->
     <button
+      ref="hamburgerButton"
       @click="toggle"
       class="w-12 h-12 flex items-center justify-center rounded-lg hover:bg-white/10 transition-colors touch-manipulation"
       :aria-expanded="isOpen"
@@ -65,6 +109,7 @@ function closeMenu() {
       <Transition name="slide">
         <nav
           v-if="isOpen"
+          ref="menuPanel"
           id="mobile-menu"
           class="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] glass-strong z-50 shadow-2xl"
           aria-label="Mobile navigation"
