@@ -50,32 +50,37 @@ import { navItems } from '../../data/navigation';
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('section[id]');
+    const sections = Array.from(document.querySelectorAll<HTMLElement>('section[id]'));
     const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    const HEADER_OFFSET = 100;
+    let activeId: string | null = null;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('id');
-            navLinks.forEach((link) => {
-              const href = link.getAttribute('href');
-              if (href === `#${id}`) {
-                link.classList.add('text-primary');
-                const underline = link.querySelector('.nav-underline');
-                if (underline) underline.classList.add('w-full');
-              } else {
-                link.classList.remove('text-primary');
-                const underline = link.querySelector('.nav-underline');
-                if (underline) underline.classList.remove('w-full');
-              }
-            });
-          }
-        });
-      },
-      { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' }
-    );
+    const setActiveLink = (id: string | null) => {
+      if (id === activeId) return;
+      activeId = id;
+      navLinks.forEach((link) => {
+        const href = link.getAttribute('href');
+        const isActive = id !== null && href === `#${id}`;
+        link.classList.toggle('text-primary', isActive);
+        const underline = link.querySelector('.nav-underline');
+        if (underline) underline.classList.toggle('w-full', isActive);
+      });
+    };
 
-    sections.forEach((section) => observer.observe(section));
+    const onScroll = () => {
+      const scrollY = window.scrollY + HEADER_OFFSET;
+      let current: string | null = null;
+
+      for (const section of sections) {
+        if (section.offsetTop <= scrollY) {
+          current = section.id;
+        }
+      }
+
+      setActiveLink(current);
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   });
 </script>

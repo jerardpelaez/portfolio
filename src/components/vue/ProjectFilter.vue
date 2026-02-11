@@ -6,7 +6,7 @@ const props = defineProps<{
   projects: Project[]
 }>()
 
-const activeFilter = ref('All')
+const activeFilters = ref(new Set<string>())
 const containerRef = ref<HTMLElement | null>(null)
 
 const allTags = computed(() => {
@@ -18,16 +18,26 @@ const allTags = computed(() => {
 })
 
 const filteredProjects = computed(() => {
-  if (activeFilter.value === 'All') {
+  if (activeFilters.value.size === 0) {
     return props.projects
   }
   return props.projects.filter(project =>
-    project.tags.includes(activeFilter.value)
+    Array.from(activeFilters.value).every(tag => project.tags.includes(tag))
   )
 })
 
-function setFilter(tag: string) {
-  activeFilter.value = tag
+function toggleFilter(tag: string) {
+  if (tag === 'All') {
+    activeFilters.value = new Set()
+    return
+  }
+  const next = new Set(activeFilters.value)
+  if (next.has(tag)) {
+    next.delete(tag)
+  } else {
+    next.add(tag)
+  }
+  activeFilters.value = next
 }
 
 function checkReducedMotion(): boolean {
@@ -51,12 +61,10 @@ onMounted(() => {
       <button
         v-for="tag in allTags"
         :key="tag"
-        @click="setFilter(tag)"
-        role="tab"
-        :aria-selected="activeFilter === tag"
-        :aria-controls="'projects-panel'"
+        @click="toggleFilter(tag)"
+        :aria-pressed="tag === 'All' ? activeFilters.size === 0 : activeFilters.has(tag)"
         class="px-4 py-2 rounded-full font-medium transition-all duration-300 touch-manipulation"
-        :class="activeFilter === tag
+        :class="(tag === 'All' ? activeFilters.size === 0 : activeFilters.has(tag))
           ? 'bg-primary-dark text-white glow-subtle-purple'
           : 'glass text-dark-muted hover:text-dark-text hover:bg-white/10'"
       >
@@ -143,7 +151,7 @@ onMounted(() => {
       class="text-center py-12"
     >
       <p class="text-dark-muted">
-        No projects found for "{{ activeFilter }}".
+        No projects found for the selected filters.
       </p>
     </div>
   </div>

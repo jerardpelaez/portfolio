@@ -220,7 +220,6 @@ input, select, textarea {
 
 .bento-lg {
   grid-column: span 6;
-  grid-row: span 2;
 }
 
 .bento-wide {
