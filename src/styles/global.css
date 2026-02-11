@@ -253,9 +253,7 @@ input, select, textarea {
 }
 
 /* Gradient Border - Monochromatic Lavender */
-.gradient-border {
-  position: relative;
-}
+.gradient-border {}
 
 .gradient-border::after {
   content: '';
