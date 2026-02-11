@@ -36,7 +36,7 @@ export const skills: Skill[] = [
 
   // Frameworks & Libraries
   { id: 'vue', name: 'Vue.js', level: 95, categoryId: 'frameworks', icon: 'devicon-vuejs-plain colored' },
-  { id: 'nuxt', name: 'Nuxt.js', level: 88, categoryId: 'frameworks', icon: 'devicon-nuxt-original colored' },
+  { id: 'nuxt', name: 'Nuxt.js', level: 88, categoryId: 'frameworks', icon: 'devicon-nuxtjs-plain colored' },
   { id: 'astro', name: 'Astro', level: 80, categoryId: 'frameworks', icon: 'devicon-astro-plain colored' },
   { id: 'vuetify', name: 'Vuetify', level: 85, categoryId: 'frameworks', icon: 'devicon-vuetify-plain colored' },
   { id: 'quasar', name: 'Quasar', level: 82, categoryId: 'frameworks', icon: 'devicon-quasar-plain colored' },
