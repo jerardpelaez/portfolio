@@ -34,5 +34,5 @@ export const contactInfo: ContactInfo[] = [
 
 export const socialLinks: SocialLink[] = [
   { name: 'GitHub', href: 'https://github.com/jerardpelaez', icon: 'github' },
-  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/jerard-pelaez-770a46198/', icon: 'linkedin' },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/jerard-pelaez/', icon: 'linkedin' },
 ]
