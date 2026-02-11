@@ -1,0 +1,97 @@
+---
+import { experiences } from '../../data/experience';
+---
+
+<section id="experience" class="py-20 md:py-32 bg-dark-deep relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Header -->
+    <div class="text-center mb-16 reveal">
+      <span class="inline-block text-primary font-semibold mb-4">Career Journey</span>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-dark-text mb-6">
+        Work Experience
+      </h2>
+      <p class="text-lg text-dark-muted max-w-2xl mx-auto">
+        From writing my first production code to shaping frontend architecture —
+        a journey across enterprise teams in edtech, fintech, gaming, and legal technology.
+      </p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="relative max-w-5xl mx-auto">
+      <!-- Vertical timeline line -->
+      <div
+        class="absolute left-4.75 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-linear-to-b from-transparent via-primary-muted/30 to-transparent"
+        aria-hidden="true"
+      ></div>
+
+      {experiences.map((exp, index) => {
+        const isEven = index % 2 === 0;
+
+        return (
+          <div class="grid grid-cols-[40px_1fr] md:grid-cols-[1fr_60px_1fr] gap-x-6 md:gap-x-10 pb-12 last:pb-0 relative">
+            {/* Timeline node */}
+            <div class="col-start-1 md:col-start-2 row-start-1 flex justify-center items-start pt-2 relative z-10">
+              <div class="relative flex items-center justify-center">
+                <div
+                  class:list={[
+                    'w-3.5 h-3.5 rounded-full relative z-10',
+                    exp.isCurrent
+                      ? 'bg-primary shadow-[0_0_16px_rgba(167,139,250,0.5)]'
+                      : 'bg-primary/60',
+                  ]}
+                />
+                <div
+                  class:list={[
+                    'absolute w-7 h-7 rounded-full border',
+                    exp.isCurrent ? 'border-primary/40' : 'border-primary/20',
+                  ]}
+                />
+              </div>
+            </div>
+
+            {/* Experience card */}
+            <article
+              class:list={[
+                'row-start-1 glass rounded-xl p-6 reveal hover:border-primary/20 transition-colors duration-150',
+                isEven ? 'col-start-2 md:col-start-1' : 'col-start-2 md:col-start-3',
+              ]}
+            >
+              {/* Period & status */}
+              <div class="flex items-center gap-2 mb-3 flex-wrap">
+                <time datetime={exp.startDate} class="text-sm font-medium text-primary">
+                  {exp.period}
+                </time>
+                {exp.isCurrent && (
+                  <span class="inline-flex items-center gap-1.5 text-xs px-2.5 py-0.5 bg-primary/15 text-primary-light rounded-full font-medium">
+                    <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                    Current
+                  </span>
+                )}
+              </div>
+
+              {/* Role */}
+              <h3 class="text-xl font-bold text-dark-text mb-1">{exp.role}</h3>
+
+              {/* Company & location */}
+              <div class="flex items-center gap-2 text-sm text-dark-muted mb-4 flex-wrap">
+                <span class="text-primary-light font-medium">{exp.company}</span>
+                <span class="text-dark-muted/40">·</span>
+                <span>{exp.location}</span>
+              </div>
+
+              {/* Responsibilities */}
+              <ul class="space-y-2">
+                {exp.responsibilities.map((resp) => (
+                  <li class="text-sm text-dark-muted leading-relaxed flex gap-2.5">
+                    <span class="w-1 h-1 rounded-full bg-primary/40 mt-2 shrink-0" />
+                    <span>{resp}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>
