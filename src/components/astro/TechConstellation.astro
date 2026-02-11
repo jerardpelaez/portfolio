@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets'
 import { skills, skillCategories } from '../../data/skills'
 import aureliaIcon from '../../assets/images/aurelia-transparent.png'
+import claudeIcon from '../../assets/images/Claude_AI_symbol.svg'
 
 // Group skills by category
 const skillsByCategory = skillCategories.map(category => ({
@@ -59,6 +60,8 @@ const skillsByCategory = skillCategories.map(category => ({
                 <div class="flex items-center justify-center w-full h-20 mb-3">
                   {skill.id === 'aurelia' ? (
                     <Image src={aureliaIcon} alt="Aurelia" width={48} height={48} class="w-12 h-12 transition-transform duration-200 group-hover:scale-110 object-contain" />
+                  ) : skill.id === 'claude' ? (
+                    <Image src={claudeIcon} alt="Claude Code" width={48} height={48} class="w-12 h-12 transition-transform duration-200 group-hover:scale-110 object-contain" />
                   ) : (
                     <i class={`${skill.icon} text-5xl transition-transform duration-200 group-hover:scale-110`} />
                   )}

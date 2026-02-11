@@ -1,8 +1,6 @@
 ---
 import { Image } from 'astro:assets';
 import profileImage from '../../assets/images/profile-image-2.jpg';
-import cert1 from '../../assets/images/cert-1.jpg';
-import cert2 from '../../assets/images/cert-2.jpg';
 ---
 
 <section id="about" class="py-20 md:py-32 bg-dark-deep relative overflow-hidden">
@@ -56,37 +54,6 @@ import cert2 from '../../assets/images/cert-2.jpg';
           <div class="reveal">
             <div class="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-linear-to-r from-primary to-primary-light">5+</div>
             <div class="text-sm text-dark-muted mt-1">Enterprise Teams</div>
-          </div>
-        </div>
-
-        <!-- Certifications -->
-        <div class="mt-10 pt-10 border-t border-white/10">
-          <h3 class="text-xl font-semibold text-dark-text mb-6 reveal">Certifications</h3>
-          <div class="grid grid-cols-2 gap-0">
-            <a href={cert1.src} target="_blank" rel="noopener noreferrer" class="reveal group">
-              <div class="glass border border-white/10 rounded-lg overflow-hidden hover:border-primary/50 transition-all duration-300">
-                <Image
-                  src={cert1}
-                  alt="Vue.js - The Complete Guide Certificate"
-                  class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                  width={400}
-                  height={300}
-                />
-              </div>
-            </a>
-            <a href={cert2.src} target="_blank" rel="noopener noreferrer" class="reveal group">
-              <div class="glass border border-white/10 rounded-lg overflow-hidden hover:border-primary-light/50 transition-all duration-300">
-                <Image
-                  src={cert2}
-                  alt="TypeScript for Professionals Certificate"
-                  class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                  width={400}
-                  height={300}
-                />
-              </div>
-            </a>
           </div>
         </div>
 
