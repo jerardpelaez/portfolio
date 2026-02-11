@@ -34,13 +34,13 @@ This document outlines the architecture for a modern portfolio website built wit
 ### Installation Commands
 ```bash
 # Create new Astro project
-npm create astro@latest portfolio
+bun create astro@latest portfolio
 
 # Add Vue integration
-npx astro add vue
+bunx astro add vue
 
 # Add Tailwind CSS
-npx astro add tailwind
+bunx astro add tailwind
 ```
 
 ### Configuration (astro.config.mjs)
