@@ -96,7 +96,7 @@ onMounted(() => {
             <h3 class="text-xl font-bold text-dark-text mb-2 group-hover:text-primary-light transition-colors">
               {{ project.title }}
             </h3>
-            <p class="text-dark-muted mb-4 line-clamp-2">
+            <p class="text-dark-muted mb-4">
               {{ project.description }}
             </p>
 
