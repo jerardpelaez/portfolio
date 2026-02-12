@@ -128,7 +128,7 @@ onMounted(() => {
                 rel="noopener noreferrer"
                 class="flex-1 py-2.5 text-center bg-primary-dark hover:bg-primary text-white font-medium rounded-lg transition-all duration-300"
               >
-                Live Demo
+                Visit Site
               </a>
               <a
                 v-if="project.codeUrl"
